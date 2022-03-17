@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: demo-java-google
+  name: demo-java-google-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-java-google
+  template:
+    metadata:
+      labels:
+        app: demo-java-google
+    spec:
+      containers:
+      - image: ajimenez15/demo-java
+        name: demo-java-google
+        ports:
+        - containerPort: 8080
